@@ -1,0 +1,29 @@
+.urlContainer {
+  position: absolute;
+  overflow: visible;
+  height: 0;
+  width: calc(100% - 24px);
+
+  > span {
+    background-color: var(--blue50);
+    font-size: 15px;
+    line-height: 18px;
+    z-index: 5;
+    position: relative;
+    text-wrap: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    max-width: calc(100%);
+    backdrop-filter: blur(8px);
+    top: 8px;
+    left: 8px;
+    border-radius: 4px;
+    padding: 3px 4px;
+    color: var(--white);
+  }
+
+  @include sm {
+    display: none;
+  }
+}

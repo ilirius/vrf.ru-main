@@ -1,0 +1,85 @@
+.toast {
+  > div {
+    background-color: var(--blue50);
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    width: 243px;
+    min-height: 32px;
+    height: 48px;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+
+  :global(.Toastify__toast) {
+    display: flex;
+    justify-content: center;
+    max-height: 48px;
+    padding: 0;
+    margin: 0;
+
+    > div:last-child {
+      word-break: keep-all;
+      text-wrap: nowrap;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: fit-content;
+    left: unset;
+    right: 8px;
+    bottom: 8px;
+
+    & > div {
+      margin-bottom: 8px;
+    }
+  }
+
+  @include xs {
+    & > div {
+      padding: 0;
+      font-size: 16px;
+      line-height: 18px;
+      margin-bottom: 8px;
+      width: 220px;
+    }
+
+    :global(.Toastify__toast) {
+      height: 48px;
+      padding: 0;
+      margin: 10px 20px;
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,139 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --gray-background: #f1f1f1;
+  --gray: #bcbbc6;
+  --gray50: #20202080;
+  --gray80: #202020cd;
+  --outline-color: #1666de;
+  --blue: #122090;
+  --dark-blue: #0d1665;
+  --blue-gray: #8087bf;
+  --blue20: #12209033;
+  --blue50: #12209080;
+  --border: #bcbbc680;
+
+  --article-cols: 4;
+  --article-gap: 28px;
+
+  @include lg {
+    --article-cols: 3;
+  }
+
+  @include md {
+    --article-cols: 1;
+  }
+
+  @include sm {
+    --article-cols: 0;
+    --article-gap: 20px;
+  }
+}
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+* {
+  overflow-anchor: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray-background);
+  @include sm {
+    background-color: var(--white);
+  }
+}
+
+.notFound {
+  margin-top: 120px;
+  margin-bottom: 140px;
+
+  background-color: transparent;
+  z-index: 30;
+  position: relative;
+
+  @include container;
+
+  > h2 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 65px;
+    margin-bottom: 24px;
+  }
+
+  > p {
+    margin-bottom: 48px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+  }
+
+  > a {
+    padding: 12px 70px;
+    background-color: var(--blue);
+    border-radius: 8px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23px;
+  }
+
+  @include lg {
+    > h2 {
+      font-size: 40px;
+      line-height: 52px;
+    }
+
+    > p {
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 40px;
+    }
+  }
+
+  @include md {
+    margin-top: 100px;
+    margin-bottom: 120px;
+
+    > h2 {
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    > p {
+      font-size: 21px;
+      line-height: 27px;
+    }
+  }
+
+  @include sm {
+    > h2 {
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 16px;
+    }
+
+    > p {
+      font-size: 17px;
+      line-height: 22px;
+      margin-bottom: 24px;
+    }
+  }
+
+  @include xs {
+  }
+}

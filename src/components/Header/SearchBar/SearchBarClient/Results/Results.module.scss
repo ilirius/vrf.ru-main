@@ -1,0 +1,152 @@
+.results {
+  height: 0;
+  overflow: visible;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+
+  &__link {
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  &__container {
+    --padding: 24px;
+    width: calc(100% - var(--padding-left) - 12px);
+    max-height: 446px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--padding) 12px 0 var(--padding);
+    z-index: 8;
+    position: relative;
+    max-width: 976px;
+    top: 16px;
+    background-color: var(--white);
+
+    @include lg {
+      left: -30%;
+      width: calc(130% - 36px);
+    }
+
+    @include sm {
+      top: 6px;
+      left: 0;
+      width: calc(100% - 32px);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 422px;
+    margin-bottom: 24px;
+
+    @include scrollbar;
+
+    > li {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+    }
+  }
+
+  &__image_container {
+    width: 105px;
+    height: 70px;
+    border-radius: 8px;
+  }
+
+  &__description {
+    width: calc(100% - 121px);
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    display: -webkit-box;
+    width: fit-content;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+
+    @include colorOnHover(var(--black), var(--blue));
+  }
+
+  &__date {
+    color: var(--gray);
+    width: 100%;
+  }
+
+  &__button {
+    display: none;
+  }
+
+  @include sm {
+    &__mobile_hidden {
+      display: none !important;
+    }
+
+    &__button {
+      display: block;
+      width: 100%;
+      border: none;
+      color: var(--white);
+      background-color: #271c6a80;
+      padding: 11px;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      transition:
+        0.3s color,
+        0.3s background-color;
+
+      &:hover {
+        background-color: var(--blue);
+      }
+    }
+
+    &__container {
+      box-shadow: 0 4px 8px 0 #00000029;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21px;
+      max-height: unset;
+    }
+
+    &__list {
+      overflow-y: hidden;
+      height: unset;
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      height: 42px;
+    }
+
+    &__image_container {
+      display: none;
+    }
+
+    &__description {
+      width: 100%;
+    }
+
+    &__date {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+      display: inline-block;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    &__last_date {
+      border: none;
+    }
+  }
+}

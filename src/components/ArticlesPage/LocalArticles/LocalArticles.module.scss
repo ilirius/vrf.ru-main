@@ -1,0 +1,157 @@
+.localArticles {
+  width: 100%;
+  margin: 0 -40px 48px;
+  background-color: #1666de0f;
+  border-radius: 16px;
+  padding: 24px 40px;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black);
+
+    @include md {
+      font-size: 28px;
+    }
+
+    @include xs {
+      font-size: 22px;
+    }
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 18px;
+    color: inherit;
+
+    @include colorOnHover(var(--black), var(--blue));
+
+    @include xs {
+      &__news {
+        display: none;
+      }
+    }
+  }
+
+  &__article {
+    width: 100% !important;
+  }
+
+  &__nav_row {
+    display: flex;
+    height: 0;
+    overflow: visible;
+    width: calc(100% + 48px);
+    top: 64px;
+    position: relative;
+    z-index: 5;
+    margin: 0 -24px;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    border-radius: 50%;
+    background-color: var(--white);
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px 0 #00000014;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s border-radius;
+    & > * {
+      transition: 0.3s opacity;
+    }
+
+    &:hover {
+      border-radius: 8px;
+    }
+
+    &:active {
+      border-radius: 50px;
+    }
+  }
+
+  &__nav[disabled] {
+    cursor: default;
+    &:hover {
+      border-radius: 50%;
+    }
+    & > * {
+      opacity: 0.2;
+    }
+  }
+
+  &__left {
+    transform: rotate(90deg);
+    position: relative;
+    left: -1px;
+  }
+
+  &__right {
+    transform: rotate(-90deg);
+  }
+
+  &__swiper_desktop {
+    display: block;
+  }
+
+  &__swiper_mobile {
+    display: none;
+  }
+
+  &__pagination {
+    display: none;
+  }
+
+  @include sm {
+    &__nav,
+    &__swiper_desktop {
+      display: none;
+    }
+
+    &__swiper_mobile {
+      display: block;
+    }
+
+    &__pagination {
+      display: flex;
+    }
+
+    &__mobile_slide {
+      display: flex;
+      height: auto;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+
+  @include breakpoint(500px) {
+    padding: 16px 24px;
+    margin: 0 -24px 40px;
+  }
+
+  @include xs {
+    border-radius: 0;
+    padding: 24px 16px 16px;
+    margin: -16px -16px 20px;
+
+    &__row {
+      margin-bottom: 24px;
+    }
+  }
+}

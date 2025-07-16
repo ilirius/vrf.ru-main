@@ -1,0 +1,58 @@
+.articles {
+  @include container;
+
+  & {
+    margin-top: 48px;
+    margin-bottom: 100px;
+    height: 100%;
+  }
+
+  @include md {
+    margin-top: 24px;
+    margin-bottom: 60px;
+  }
+
+  @include sm {
+    margin-top: 16px;
+    margin-bottom: 50px;
+  }
+
+  &__searchControls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    @include xs {
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 46px;
+    color: var(--black);
+  }
+
+  @include md {
+    &__title {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+
+  @include sm {
+    font-size: 24px;
+    line-height: 29px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 29px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+  }
+}

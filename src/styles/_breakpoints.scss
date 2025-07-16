@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'xl': 1920px,
+  'lg': 1440px,
+  'md': 1024px,
+  'sm': 768px,
+  'xs': 420px
+);
+
+@mixin xs {
+  @media (max-width: map.get($breakpoints, 'xs')) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: map.get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map.get($breakpoints, 'md')) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map.get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map.get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin breakpoint($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin touch {
+  @media (hover: none) {
+    @content;
+  }
+}

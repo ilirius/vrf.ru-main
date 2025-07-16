@@ -1,0 +1,31 @@
+.similarArticles {
+  margin-bottom: 64px;
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    margin: 48px 0 24px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+  }
+
+  @include sm {
+    margin-bottom: 48px;
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.selector {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+
+  &__current {
+    text-wrap: nowrap;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    font: inherit;
+    border: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include colorOnHover(var(--black), var(--blue));
+  }
+
+  &__location_icon {
+    display: block;
+  }
+  &__location_icon_mobile {
+    display: none;
+  }
+
+  @include sm {
+    &__current_location {
+      display: none;
+    }
+
+    &__location_icon {
+      display: none;
+    }
+    &__location_icon_mobile {
+      display: block;
+    }
+  }
+}

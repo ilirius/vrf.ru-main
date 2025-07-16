@@ -1,0 +1,36 @@
+.tags {
+  display: flex;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__container_closed {
+    width: calc(100% - 80px);
+    height: 30px;
+    overflow-y: hidden;
+  }
+
+  &__item {
+    background-color: var(--gray-background);
+    border-radius: 8px;
+  }
+
+  &__item,
+  &__open {
+    color: var(--gray50);
+    padding: 4px 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  &__open {
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,50 @@
+.topicsModal {
+  inset: 0;
+  position: fixed;
+  background-color: var(--white);
+  z-index: 50;
+  padding: 24px 0;
+
+  &__h2 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    margin: 24px 16px;
+  }
+
+  &__back {
+    margin: 0 8px;
+    cursor: pointer;
+  }
+
+  &__list {
+    overflow-y: scroll;
+    height: calc(100dvh - 138px);
+  }
+
+  &__item {
+    padding: 13px 16px;
+    color: var(--gray50);
+    transition:
+      0.3s color,
+      0.3s background-color;
+
+    &:active {
+      color: var(--blue);
+      background-color: var(--blue20);
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__item_active {
+    background-color: var(--blue20);
+    color: var(--blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

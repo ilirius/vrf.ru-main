@@ -1,0 +1,166 @@
+.footer {
+  margin: 0 auto;
+  width: 100%;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    @include container;
+
+    & {
+      padding-top: 32px;
+      padding-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  &__link {
+    padding-bottom: 16px;
+
+    > a {
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22px;
+
+      @include link;
+    }
+  }
+
+  &__logo {
+    display: block;
+  }
+  &__logo_mobile {
+    display: none;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    color: var(--blue50);
+    gap: 16px;
+    max-width: 485px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__personal_data_link {
+    color: inherit;
+  }
+
+  &__rss_link {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--blue);
+    margin: 8px 0;
+
+    @include link;
+  }
+
+  &__media_desktop {
+    height: auto;
+    overflow: hidden;
+  }
+  &__media_mobile {
+    display: none !important;
+  }
+
+  &__links {
+    display: flex;
+    gap: 60px;
+  }
+
+  @include md {
+    &__column {
+      max-width: 385px;
+    }
+
+    &__link {
+      > a {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+
+    &__rss_link {
+      width: fit-content;
+      font-size: 16px;
+    }
+
+    &__container {
+      gap: 50px;
+    }
+
+    &__media_desktop {
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -200%;
+      overflow: hidden;
+    }
+    &__media_mobile {
+      display: flex !important;
+    }
+
+    &__column {
+      margin-bottom: 40px;
+      max-width: 100%;
+    }
+
+    &__row {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &__links {
+      margin-bottom: 16px;
+    }
+  }
+
+  @include sm {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-color: var(--dark-blue);
+
+    &__logo {
+      display: none;
+    }
+    &__logo_mobile {
+      display: block;
+    }
+
+    &__container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    &__column {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__links {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__rss_link {
+      color: var(--white);
+    }
+
+    &__link {
+      > a {
+        color: var(--white);
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+.article {
+  color: inherit;
+  text-decoration: none;
+  h4 {
+    transition: 0.3s color;
+  }
+
+  width: calc(100% * 1 / 3 - var(--article-gap) * 1 / 2);
+  @include lg {
+    width: calc(100% * 2 / 5 - var(--article-gap) * 3 / 5);
+  }
+  @include md {
+    width: calc(100% * 2 / 3 - var(--article-gap) * 1 / 3);
+  }
+  @include sm {
+    width: calc(100%);
+  }
+
+  &:hover {
+    h4 {
+      color: var(--blue);
+    }
+    & img {
+      width: 106% !important;
+      height: 106% !important;
+      left: -3% !important;
+      top: -3% !important;
+    }
+  }
+  @include touch {
+    &:hover {
+      h4 {
+        color: inherit;
+      }
+      & img {
+        width: unset;
+        height: unset;
+        left: unset;
+        top: unset;
+      }
+    }
+    &:active {
+      h4 {
+        color: var(--blue);
+      }
+      & img {
+        width: 106% !important;
+        height: 106% !important;
+        left: -3% !important;
+        top: -3% !important;
+      }
+    }
+  }
+  & img {
+    transition: 0.3s ease-out;
+  }
+
+  &__image_container,
+  &__date,
+  &__title,
+  &__text {
+    &__loader {
+      background-image: linear-gradient(
+        86.42deg,
+        rgba(18, 32, 144, 0.4) 0%,
+        rgba(18, 32, 144, 0) 100%
+      );
+    }
+  }
+
+  &__image_container {
+    position: relative;
+    aspect-ratio: 508 / 339;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  &__date {
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--gray);
+
+    &__loader {
+      height: 24px;
+      width: 80%;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 16px 0;
+
+    &__loader {
+      height: 24px;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+
+    &__loader {
+      display: none;
+    }
+  }
+
+  @include xs {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+
+    &__title {
+      margin: 12px 0 8px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
+
+      &__loader {
+        margin: 8px 0;
+        height: 20px;
+      }
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__date {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 18px;
+      margin-top: -4px;
+
+      &__loader {
+        height: 20px;
+      }
+    }
+  }
+}

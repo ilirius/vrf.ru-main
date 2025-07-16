@@ -1,0 +1,99 @@
+@use 'breakpoints' as *;
+@use 'sass:color';
+
+@mixin calcWidth($base) {
+  max-width: min($base, calc(100% - 2 * var(--padding)));
+}
+
+@mixin container {
+  --padding: 162px;
+
+  width: 100%;
+  margin: 0 auto;
+
+  @include calcWidth(1596px);
+
+  @include lg {
+    --padding: 56px;
+    @include calcWidth(1328px);
+  }
+
+  @include md {
+    --padding: 116px;
+    @include calcWidth(792px);
+  }
+
+  @include sm {
+    --padding: 100px;
+    @include calcWidth(700px);
+  }
+
+  @media screen and (max-width: 500px) {
+    --padding: 34px;
+  }
+
+  @include xs {
+    --padding: 16px;
+    @include calcWidth(376px);
+  }
+}
+
+@mixin colorOnHover($baseColor, $hoveredColor) {
+  transition: 0.3s color;
+  color: $baseColor;
+
+  &:hover {
+    color: $hoveredColor;
+  }
+
+  @include touch {
+    &:hover {
+      color: $baseColor;
+    }
+    &:active {
+      color: $hoveredColor;
+    }
+  }
+}
+
+@mixin link {
+  &:hover {
+    text-decoration: underline;
+  }
+  @include touch {
+    &:hover {
+      text-decoration: none;
+    }
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin scrollbar {
+  overflow-y: scroll;
+  overflow-anchor: auto;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border: 5px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+    min-height: 40px;
+  }
+
+  $gray: #bcbbc6;
+  &::-webkit-scrollbar-thumb:horizontal:hover,
+  &::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: color.adjust($gray, $lightness: -10%, $space: hsl);
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal:active,
+  &::-webkit-scrollbar-thumb:vertical:active {
+    background-color: color.adjust($gray, $lightness: -20%, $space: hsl);
+  }
+}

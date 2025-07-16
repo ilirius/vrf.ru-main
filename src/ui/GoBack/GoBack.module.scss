@@ -1,0 +1,18 @@
+.goBack {
+  &__button {
+    padding: 0;
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: var(--gray50);
+    font-size: 18px;
+    line-height: 23px;
+
+    @include sm {
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.articlePage {
+  @include container;
+
+  & {
+    margin-top: 32px;
+    margin-bottom: 100px;
+    height: 100%;
+  }
+
+  @include md {
+    margin-top: 24px;
+    margin-bottom: 60px;
+  }
+
+  @include sm {
+    margin-top: 24px;
+    margin-bottom: 50px;
+  }
+
+  &__back {
+    margin-bottom: 30px;
+    width: fit-content;
+
+    > button {
+      cursor: pointer;
+    }
+  }
+}

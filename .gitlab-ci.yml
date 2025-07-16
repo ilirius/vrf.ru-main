@@ -1,0 +1,51 @@
+
+include:
+  - project: devops/ci-templates
+    ref: feature-template
+    file: pipelines/global.yaml
+
+variables:
+  DOCKER_BUILDKIT: 1
+  CI_SERVICE_CONTAINERS: "app nginx"
+  SERVICE_WITH_VARS : "true"
+  CI_TMPL_DOCKERFILE: "${CI_PROJECT_DIR}/.ci/docker/Dockerfile"
+
+workflow:
+  # See https://docs.gitlab.com/ee/ci/jobs/job_control.html#avoid-duplicate-pipelines
+  rules:
+    # To avoid duplicate pipelines we disable merge request events,
+    # leaving only pushes and manual triggering.
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - when: always
+
+
+docker_build:
+  stage: package
+  variables:
+    DOCKER_BUILD_ARGS: "--build-arg URL=$URL --build-arg API_URL=$API_URL --build-arg SEARCH_API_URL=$SEARCH_API_URL --build-arg SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN --build-arg SENTRY_PROJECT_NAME=$SENTRY_PROJECT_NAME --build-arg SENTRY_URL=$SENTRY_URL --build-arg NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN"
+  script:
+    - echo "Logging into GitLab container registry..."
+    - docker login -u $DOCKER_REGISTRY_USER  -p $DOCKER_REGISTRY_PASSWORD  $DOCKER_REGISTRY_URL
+    - docker buildx build --push -f "${CI_PROJECT_DIR}/.ci/docker/Dockerfile" "${CI_PROJECT_DIR}" -t "${DOCKER_REGISTRY_URL}/vrf_ru/vrf_ru-app:${CI_COMMIT_SHORT_SHA}" --target=vrf_ru-app $DOCKER_BUILD_ARGS
+    - docker buildx build --push -f "${CI_PROJECT_DIR}/.ci/docker/Dockerfile" "${CI_PROJECT_DIR}" -t "${DOCKER_REGISTRY_URL}/vrf_ru/vrf_ru-nginx:${CI_COMMIT_SHORT_SHA}" --target=vrf_ru-nginx $DOCKER_BUILD_ARGS
+
+deploy-to-dev:
+  variables:
+    NAMESPACE: vrf-ru
+    ENV: dev
+    APP: vrf-ru
+    NODE_GROUP: smi2-ru
+    CONFIG: lt
+  when: manual
+
+
+deploy-to-prod:
+  variables:
+    NAMESPACE: vrf-ru
+    ENV: prod
+    APP: vrf-ru
+    NODE_GROUP: common
+    CONFIG: prod
+  rules:
+    - when: never

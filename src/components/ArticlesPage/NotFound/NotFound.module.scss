@@ -1,0 +1,58 @@
+.notFound {
+  margin-top: 20px;
+
+  > h3 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    margin-bottom: 16px;
+  }
+
+  > ul {
+    list-style-type: disc;
+    padding-left: 28px;
+
+    > li {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 23px;
+    }
+  }
+
+  @include lg {
+    > h3 {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+
+  @include md {
+    > h3 {
+      font-size: 21px;
+      line-height: 37px;
+    }
+
+    > ul {
+      padding-left: 25px;
+
+      > li {
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  @include sm {
+    > h3 {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    > ul {
+      > li {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+  }
+}

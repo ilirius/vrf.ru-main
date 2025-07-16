@@ -1,0 +1,39 @@
+.switch {
+  padding: 4px;
+  background-color: var(--blue);
+  height: 28px;
+  min-width: 48px;
+  border-radius: 8px;
+  border: none;
+  transition: 0.3s ease-in-out background-color;
+  cursor: pointer;
+
+  @include xs {
+    height: 24px;
+  }
+}
+
+.disabled {
+  background-color: var(--gray);
+}
+
+.circle {
+  box-shadow: 0 2px 8px 0 #00000029;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: var(--white);
+  display: inline-block;
+  position: relative;
+  right: -10px;
+  transition: 0.3s ease-out right;
+
+  @include xs {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.circleDisabled {
+  right: 10px;
+}

@@ -1,0 +1,42 @@
+.closeIcon {
+  $padding: 7px;
+  background-color: var(--blue-gray);
+  height: 24px - $padding * 2;
+  width: 24px - $padding * 2;
+  border-radius: 50%;
+  transition:
+    0.3s border-radius,
+    0.3s background-color;
+  padding: $padding;
+
+  &:hover {
+    border-radius: 6px;
+  }
+
+  &:active {
+    background-color: var(--blue);
+    border-radius: 50%;
+  }
+
+  &__left_line,
+  &__right_line {
+    background-color: var(--white);
+    display: block;
+    width: calc(100% + 2px);
+    height: 2px;
+    border-radius: 2px;
+    left: -1px;
+  }
+
+  &__left_line {
+    transform: rotate(45deg);
+    position: relative;
+    top: calc(25% + 2px);
+  }
+
+  &__right_line {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 25%;
+  }
+}

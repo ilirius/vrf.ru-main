@@ -1,0 +1,151 @@
+.goBack {
+  margin-bottom: 32px;
+  > button {
+    cursor: pointer;
+  }
+}
+
+.search {
+  width: 100%;
+  align-items: center;
+
+  &__input {
+    flex: 1 1 auto;
+  }
+
+  @include xs {
+    &__input {
+      flex: unset;
+    }
+  }
+
+  &__icon {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__order_buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__order,
+  &__order_active {
+    padding: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23px;
+    border-radius: 8px;
+    transition:
+      0.3s color,
+      0.3s background-color;
+  }
+
+  &__order {
+    color: var(--blue20);
+    background-color: var(--white);
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--blue20);
+      color: var(--blue);
+    }
+    @include touch {
+      &:hover {
+        color: var(--blue20);
+        background-color: var(--white);
+      }
+      &:active {
+        background-color: var(--blue20);
+        color: var(--blue);
+      }
+    }
+  }
+
+  &__order_active {
+    background-color: var(--blue20);
+    color: var(--blue);
+  }
+
+  @media screen and (max-width: 800px) {
+    align-items: flex-start;
+    gap: 16px 32px;
+
+    &__input {
+      width: 100%;
+    }
+  }
+
+  &__sources_mobile,
+  &__sources {
+    padding: 0;
+    border: none;
+    background-color: var(--white);
+    cursor: pointer;
+  }
+
+  &__sources_mobile {
+    display: none;
+  }
+
+  &__sources {
+    display: flex;
+  }
+
+  &__input_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__filter_disabled {
+    display: none;
+  }
+
+  &__filter {
+    transition: 0.3s opacity;
+    opacity: 0.5;
+    display: none;
+
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &__sources_mobile {
+      display: flex;
+    }
+
+    &__sources {
+      display: none;
+    }
+  }
+
+  @include sm {
+    position: relative;
+
+    &__filter {
+      display: inline;
+      margin-right: 8px;
+    }
+  }
+}
+
+.withSources {
+  @media screen and (max-width: 800px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px 24px;
+  }
+
+  @include sm {
+    gap: 16px;
+  }
+}

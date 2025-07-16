@@ -1,0 +1,113 @@
+.input {
+  height: 54px;
+  border: 1px solid var(--blue20);
+  background-color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition:
+    0.3s border,
+    0.3s border-color;
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--blue);
+  }
+
+  &__filter,
+  &__icon,
+  &__close {
+    cursor: pointer;
+  }
+
+  &__filter,
+  &__icon {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__icon:has(+ input:focus) {
+    opacity: 1;
+  }
+
+  &__icon {
+    transition: 0.3s opacity;
+    transform: scale(0.75);
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  &__filter,
+  &__close {
+    margin-right: 16px;
+    outline: none;
+  }
+
+  &__filter {
+    transition: 0.3s opacity;
+  }
+
+  &__filter_disabled,
+  &__close_disabled {
+    transition: 0.3s opacity;
+    opacity: 0;
+    margin-right: 16px;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__input {
+    padding: 0;
+    flex-grow: 1;
+    border: none;
+    height: calc(100% - 2px);
+    margin-right: 16px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+
+    &::placeholder {
+      color: var(--gray);
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  @include sm {
+    height: 46px;
+
+    &__input {
+      font-size: 16px;
+      line-height: 21px;
+      order: 1;
+      padding-left: 12px;
+      margin-right: -32px;
+      border-radius: 8px;
+
+      &:focus {
+        margin-right: 0;
+      }
+    }
+
+    &__close,
+    &__close_disabled {
+      order: 2;
+      margin-right: 0;
+    }
+
+    &__icon {
+      order: 3;
+    }
+
+    &__filter_disabled,
+    &__filter {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,134 @@
+.navBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  &__nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 1px;
+    height: 30px;
+  }
+
+  &__topic {
+    text-wrap: nowrap;
+    text-decoration: none;
+    padding: 4px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    transition: 0.3s;
+    display: none;
+
+    @include colorOnHover(var(--gray80), var(--blue));
+  }
+
+  &__topic_active {
+    color: var(--blue);
+  }
+
+  &__dropdown {
+    height: 0;
+    width: 0;
+    position: relative;
+    top: 34px;
+    left: -232px;
+    z-index: 60;
+  }
+
+  &__dropdown_container {
+    position: absolute;
+    width: 232px;
+    background-color: var(--white);
+    border-radius: 8px;
+    max-height: 420px;
+    @include scrollbar;
+  }
+
+  &__dropdown_topic {
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--gray80);
+    padding: 11px 12px;
+    transition:
+      0.3s color,
+      0.3s background-color;
+
+    &:hover {
+      color: var(--blue);
+      background-color: var(--blue20);
+    }
+
+    @include touch {
+      &:hover {
+        color: inherit;
+        background-color: inherit;
+      }
+
+      &:active {
+        color: var(--blue);
+        background-color: var(--blue50);
+      }
+    }
+  }
+
+  &__dropdown_topic_active {
+    background-color: var(--blue20);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @for $i from 0 through 3 {
+    :global(.topic_index_#{$i}) {
+      display: flex;
+    }
+  }
+  @include lg {
+    :global(.topic_index_3) {
+      display: none;
+    }
+    :global(.topic_index_2) {
+      display: none;
+    }
+  }
+  @include md {
+    :global(.topic_index_2) {
+      display: flex;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    :global(.topic_index_2) {
+      display: none;
+    }
+  }
+
+  @for $i from 0 through 3 {
+    :global(.dropdown_topic_index_#{$i}) {
+      display: none;
+    }
+  }
+  @include lg {
+    :global(.dropdown_topic_index_3) {
+      display: flex;
+    }
+    :global(.dropdown_topic_index_2) {
+      display: flex;
+    }
+  }
+  @include md {
+    :global(.dropdown_topic_index_2) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    :global(.dropdown_topic_index_2) {
+      display: flex;
+    }
+  }
+}

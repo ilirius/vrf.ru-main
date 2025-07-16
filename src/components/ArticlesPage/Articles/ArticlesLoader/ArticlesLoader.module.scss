@@ -1,0 +1,166 @@
+.articlesLoader {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  &__large {
+    width: 628px;
+    height: 590px;
+    flex: 2 1 0;
+
+    @include md {
+      display: none;
+    }
+  }
+
+  &__small {
+    height: 287px;
+    width: calc((100% - 32px) / 3);
+
+    @include lg {
+      width: calc((100% - 16px) / 2);
+    }
+
+    @include md {
+      width: calc((100% - 32px) / 3);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: calc((100% - 16px) / 2);
+    }
+
+    @include sm {
+      width: 100%;
+      height: 127px;
+    }
+  }
+
+  &__small_grid {
+    height: 287px;
+    width: calc((100% - 64px) / 5);
+
+    @include lg {
+      width: calc((100% - 48px) / 4);
+    }
+
+    @include md {
+      width: calc((100% - 32px) / 3);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: calc((100% - 16px) / 2);
+    }
+
+    @include sm {
+      height: 127px;
+      width: calc(100%);
+    }
+  }
+
+  &__small_container {
+    height: 590px;
+    flex: 3 1 0;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  &__small_container_grid {
+    width: 100%;
+    overflow: hidden;
+    height: 590px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @include md {
+    &__second_block {
+      display: none;
+    }
+  }
+
+  &__large_grid {
+    display: none;
+  }
+
+  &__image_small,
+  &__image_large,
+  &__title_small,
+  &__title_large,
+  &__time_small,
+  &__time_large {
+    background-image: linear-gradient(
+      86.42deg,
+      rgba(18, 32, 144, 0.4) 0%,
+      rgba(18, 32, 144, 0) 100%
+    );
+  }
+
+  &__image_large,
+  &__image_small {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  &__image_large {
+    height: 398px;
+  }
+  &__image_small {
+    height: 180px;
+  }
+
+  &__title_large {
+    width: 75%;
+    height: 31px;
+    margin-top: 16px;
+  }
+
+  &__time_large {
+    width: 50%;
+    height: 23px;
+    margin-top: 16px;
+  }
+
+  &__title_small {
+    width: 75%;
+    height: 25px;
+    margin-top: 8px;
+  }
+
+  &__time_small {
+    width: 50%;
+    height: 21px;
+    margin-top: 8px;
+  }
+
+  @include sm {
+    &__small_grid,
+    &__small {
+      height: 130px;
+      display: flex;
+      margin-top: 16px;
+      margin-bottom: -16px;
+      gap: 8px;
+    }
+
+    &__image_small {
+      flex: 136 1 0;
+      height: 80px;
+    }
+    &__description {
+      flex: 246 1 0;
+    }
+
+    &__title_small {
+      height: 21px;
+    }
+
+    &__time_small {
+      height: 16px;
+    }
+  }
+}

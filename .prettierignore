@@ -1,0 +1,8 @@
+# Ignore everything:
+/*
+
+# Except the following:
+!src/
+
+# Ignore 3rd party style
+/src/styles/reset.css
